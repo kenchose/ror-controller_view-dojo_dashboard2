@@ -1,0 +1,27 @@
+<h1 style="text-align: center;">Listing <%= @count %> Dojos</h1>
+<% if flash[:success] %>
+    <h3><p> <%= flash[:success] %> </p></h3>
+<% end %>
+<div style="border: black solid;">
+    <table style="width: 100%; height: 100%;">
+        <tr>
+            <th>Branch</th>
+            <th>Street</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Action</th>
+        </tr>
+        <% @dojo.each do |d| %>
+            <tr>
+                <td><%= d.branch %></td>
+                <td><%= d.street %></td>
+                <td><%= d.city %></td>
+                <td><%= d.state %></td>
+                <td><a href="/dojos/<%= d.id %>">Show</a></td>
+                <td><a href="/dojos/<%= d.id %>/edit">Edit</a></td>
+                <td><a href="/dojos/<%= d.id %>/destroy">Destroy</a></td>
+            </tr>
+        <% end %>
+    </table>
+</div>
+<a href="/dojos/new"><h3>New Dojo</h3></a> 
